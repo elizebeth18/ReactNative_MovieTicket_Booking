@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Provider } from 'react-redux';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import RootStack from './components/RootStack';
+import RootStack from './screens/RootStack';
 import { store } from './store/store';
 
 
