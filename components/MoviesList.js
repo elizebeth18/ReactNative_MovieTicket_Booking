@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { moviesListThunk } from '../store/moviesSlice';
-import { View, FlatList, Text, StyleSheet } from 'react-native';
+import { View, FlatList, Image,Text, StyleSheet } from 'react-native';
 
 const MoviesList = () => {
     const [moviesList, setMoviesList] = useState([]);
@@ -12,16 +12,27 @@ const MoviesList = () => {
         dispatch(moviesListThunk())
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         setMoviesList(selectMoviesList);
         console.log(selectMoviesList.length)
-    },[selectMoviesList]);
+    }, [selectMoviesList]);
 
     return (
         <View style={styles.rootContainer}>
-            {selectMoviesList.map((movie,index) => {
-                return (<Text key={index}>{movie.title}</Text>)
-            })}
+            <FlatList
+                keyExtractor={(item) => item.id}
+                data={selectMoviesList}
+                renderItem={(itemData) => {
+                    return(
+                        <View>
+                            <Image 
+                                style={styles.image}
+                                source={require('../assets/img/1.jpg')}/>
+                            <Text>{itemData.item.title}</Text>
+                        </View>
+                    )
+                }} />
+            
         </View>
     )
 }
@@ -32,9 +43,13 @@ const styles = StyleSheet.create({
     rootContainer: {
         flex: 1,
         justifyContent: 'center',
-        alignItems:'center',
-        //padding:50,
-        // margin: 50,
+        alignItems: 'center',
+        padding: 10,
+        //margin: 50,
         backgroundColor: '#540505cc'
+    },
+    image: {
+        width: '100%',
+        height: 200
     }
 })
