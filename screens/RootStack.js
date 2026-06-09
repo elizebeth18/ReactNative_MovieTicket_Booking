@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MoviesList from './MoviesList';
-import MySearchBar from '../components/MySearchBar';
+import MovieDetailScreen from './MovieDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +15,10 @@ const RootStack = () => {
             <Stack.Screen
                 name='Movies List'
                 component={MoviesList}
+            />
+            <Stack.Screen
+                name='MovieDetails'
+                component={MovieDetailScreen}
             />
         </Stack.Navigator>
     );

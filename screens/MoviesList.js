@@ -2,9 +2,11 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 import { moviesListThunk } from '../store/moviesSlice';
-import { View, FlatList, Image,Text, StyleSheet } from 'react-native';
+import { View, FlatList, Image, Text, StyleSheet } from 'react-native';
+import ListMovies from '../components/ListMovies';
 
 const MoviesList = () => {
+
     const [moviesList, setMoviesList] = useState([]);
     const navigation = useNavigation();
 
@@ -13,47 +15,47 @@ const MoviesList = () => {
     const selectMoviesList = useSelector((state) => state.moviesR.movies);
     const dispatch = useDispatch();
 
-    
-
-    useLayoutEffect(()=>{
+    useLayoutEffect(() => {
         navigation.setOptions({
             headerSearchBarOptions: {
                 placeholder: 'Search Movies..',
+                headerIconColor: 'white',
                 onChangeText: (event) => { setSearchQuery(event.nativeEvent.text) },
                 onCancelButtonPress: () => {
                     setSearchQuery('');
                     console.log('User cancelled the search');
                 },
-                onClearButtonPress: () => {setSearchQuery('')
-                    console.log('clear btn');},
-                //cancelSearch={},
+                onClearButtonPress: () => {
+                    setSearchQuery('')
+                    console.log('clear btn');
+                },
             }
         })
-    },[navigation]);
+    }, [navigation]);
 
 
     useEffect(() => {
         dispatch(moviesListThunk())
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         setMoviesList(selectMoviesList);
 
-        
     }, [selectMoviesList]);
 
-    useEffect(()=> {
-
+    useEffect(() => {
 
         const filteredMoviesList = selectMoviesList.filter((movie) => {
-        return movie.title.toLowerCase().includes(searchQuery.toLowerCase());
-    });
+            return movie.title.toLowerCase().includes(searchQuery.toLowerCase());
+        });
 
-    //setMoviesList(filteredMoviesList);
-        if(filteredMoviesList.length > 0) {
-        setMoviesList(filteredMoviesList)
-    }
-    },[searchQuery]);
+        //setMoviesList(filteredMoviesList);
+        if (filteredMoviesList.length > 0) {
+            setMoviesList(filteredMoviesList)
+        }
+
+        console.log("searchQuery",searchQuery.length)
+    }, [searchQuery]);
 
     return (
         <View style={styles.rootContainer}>
@@ -62,16 +64,13 @@ const MoviesList = () => {
                 data={moviesList}
                 contentInsetAdjustmentBehavior='automatic'
                 renderItem={(itemData) => {
-                    return(
-                        <View style={styles.movieContainer}>
-                            <Image 
-                                style={styles.image}
-                                source={require('../assets/img/1.jpg')}/>
-                            <Text style={styles.text}>{itemData.item.title}</Text>
-                        </View>
+                    return (
+                        <ListMovies 
+                            id={itemData.item.id} 
+                            title={itemData.item.title} />
                     )
                 }} />
-            
+
         </View>
     )
 }
@@ -87,17 +86,4 @@ const styles = StyleSheet.create({
         //margin: 50,
         backgroundColor: '#540505cc'
     },
-    movieContainer: {
-        margin: 10
-    },
-    image: {
-        width: '120%',
-        height: 250
-    },
-    text: {
-        textAlign: 'center',
-        fontWeight: 'bold',
-        color: 'white',
-        padding: 8,
-    }
 })
