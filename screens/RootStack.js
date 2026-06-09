@@ -8,8 +8,11 @@ const RootStack = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerStyle: { backgroundColor: '#39280acc' },
+                headerStyle: { backgroundColor: '#540505' },
                 headerTintColor: 'white',
+                contentStyle: {
+                    backgroundColor: '#540505cc'
+                }
             }}
         >
             <Stack.Screen
@@ -19,6 +22,9 @@ const RootStack = () => {
             <Stack.Screen
                 name='MovieDetails'
                 component={MovieDetailScreen}
+                options={({ route }) => ({
+                    title: route.params?.title,
+                })}
             />
         </Stack.Navigator>
     );

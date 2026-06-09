@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { moviesListThunk } from '../store/moviesSlice';
 import { View, FlatList, Image, Text, StyleSheet } from 'react-native';
 import ListMovies from '../components/ListMovies';
+import NoMatchFound from '../components/NoMatchFound';
 
 const MoviesList = () => {
 
@@ -20,7 +21,10 @@ const MoviesList = () => {
             headerSearchBarOptions: {
                 placeholder: 'Search Movies..',
                 headerIconColor: 'white',
-                onChangeText: (event) => { setSearchQuery(event.nativeEvent.text) },
+                onChangeText: (event) => { 
+                    setSearchQuery(event.nativeEvent.text);
+                    console.log('MoviesList render');
+                 },
                 onCancelButtonPress: () => {
                     setSearchQuery('');
                     console.log('User cancelled the search');
@@ -43,34 +47,30 @@ const MoviesList = () => {
 
     }, [selectMoviesList]);
 
-    useEffect(() => {
 
-        const filteredMoviesList = selectMoviesList.filter((movie) => {
-            return movie.title.toLowerCase().includes(searchQuery.toLowerCase());
-        });
 
-        //setMoviesList(filteredMoviesList);
-        if (filteredMoviesList.length > 0) {
-            setMoviesList(filteredMoviesList)
-        }
+    const filteredMoviesList = selectMoviesList.filter((movie) => {
+        return movie.title.toLowerCase().includes(searchQuery.toLowerCase());
+    });
 
-        console.log("searchQuery",searchQuery.length)
-    }, [searchQuery]);
+    const isSearching = searchQuery.trim().length > 0;
 
     return (
         <View style={styles.rootContainer}>
-            <FlatList
-                keyExtractor={(item) => item.id}
-                data={moviesList}
-                contentInsetAdjustmentBehavior='automatic'
-                renderItem={(itemData) => {
-                    return (
-                        <ListMovies 
-                            id={itemData.item.id} 
-                            title={itemData.item.title} />
-                    )
-                }} />
 
+            {(filteredMoviesList.length === 0 && isSearching) ? <NoMatchFound /> :
+                <FlatList
+                    keyExtractor={(item) => item.id.toString()}
+                    data={filteredMoviesList}
+                    contentInsetAdjustmentBehavior='automatic'
+                    renderItem={(itemData) => {
+                        return (
+                            <ListMovies
+                                id={itemData.item.id}
+                                title={itemData.item.title} />
+                        )
+                    }} />
+            }
         </View>
     )
 }
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,
-        //margin: 50,
-        backgroundColor: '#540505cc'
+        marginBottom: 45,
     },
 })

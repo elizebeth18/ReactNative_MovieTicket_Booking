@@ -1,21 +1,16 @@
 import { useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
 import { Text, Image, StyleSheet, View } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
 
 const MovieDetailScreen = ({ route }) => {
 
     const movieId = route.params.id;
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
     const selectMoviesList = useSelector(state => state.moviesR.movies);
 
     const chosenMovie = selectMoviesList.find((movie) => movie.id === route.params.id);
 
-    useLayoutEffect(()=> {
-        navigation.setOptions({
-            title: route.params.title
-        })
-    },[]);
+    console.log(chosenMovie);
 
     return (
         <View style={styles.rootContainer}>

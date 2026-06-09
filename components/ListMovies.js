@@ -1,28 +1,25 @@
 import { Pressable, View, Image, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useLayoutEffect } from "react";
 
 const ListMovies = ({ title, id }) => {
 
     const navigation = useNavigation();
 
     const onImagePressHandler = () => {
-        console.log('id', id);
+        
         navigation.navigate('MovieDetails', {
             'id': id,
             'title': title
         })
     }
 
-    /* useLayoutEffect(() => {
-        navigation.setOptions({
-            title: title
-        })
-    }, [navigation]); */
-
     return (
         <View style={styles.movieContainer}>
-            <Pressable onPress={onImagePressHandler}>
+            <Pressable 
+                onPress={onImagePressHandler}
+                android_ripple={{ color: "#cccc"}}
+                style={({ pressed }) => [pressed && styles.pressed]}
+            >
                 <Image
                     style={styles.image}
                     source={require('../assets/img/1.jpg')} />
@@ -45,6 +42,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         padding: 8,
+    },
+    pressed: {
+        opacity: 0.7,
     }
 });
 
