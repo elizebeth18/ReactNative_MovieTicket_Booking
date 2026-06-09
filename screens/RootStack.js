@@ -24,6 +24,7 @@ const RootStack = () => {
                 component={MovieDetailScreen}
                 options={({ route }) => ({
                     title: route.params?.title,
+                    animation: 'none'
                 })}
             />
         </Stack.Navigator>

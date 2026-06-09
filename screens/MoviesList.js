@@ -21,6 +21,7 @@ const MoviesList = () => {
             headerSearchBarOptions: {
                 placeholder: 'Search Movies..',
                 headerIconColor: 'white',
+                tintColor: 'white',
                 onChangeText: (event) => { 
                     setSearchQuery(event.nativeEvent.text);
                     console.log('MoviesList render');
