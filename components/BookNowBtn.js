@@ -6,14 +6,14 @@ const BookNowBtn = ({ movieId }) => {
     const navigation = useNavigation();
 
     const bookNowHandler = () => {
-        navigation.navigate('UserDetails',{ movieId: movieId })
+        navigation.navigate('UserDetails', { movieId: movieId })
     }
-    return(
-        <View>
-            <Pressable onPress={bookNowHandler}>
-                <View>
-                    <Text>Book Now</Text>
-                </View>
+    return (
+        <View style={styles.buttonOuterContainer}>
+            <Pressable 
+                style={({ pressed }) => pressed ? [styles.buttonInnerContainer, styles.pressed] : styles.buttonInnerContainer}
+                onPress={bookNowHandler}>
+                <Text style={styles.butonText}>Book Now</Text>
             </Pressable>
         </View>
     )
@@ -22,5 +22,22 @@ const BookNowBtn = ({ movieId }) => {
 export default BookNowBtn;
 
 const styles = StyleSheet.create({
-
+    buttonOuterContainer: {
+        borderRadius: 28,
+        margin: 4,
+        overflow: 'hidden'
+    },
+    buttonInnerContainer: {
+        backgroundColor: '#540505',
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        elevation: 2,
+    },
+    butonText: {
+        textAlign: 'center',
+        color: 'white'
+    },
+    pressed: {
+        opacity: 0.75
+    }
 });

@@ -17,10 +17,10 @@ const ListMovies = ({ title, id }) => {
         <View style={styles.movieContainer}>
             <Pressable
                 onPress={onImagePressHandler}
-                android_ripple={{ color: "#cccc" }}
+                android_ripple={{ color: "#cccc", foreground: true }} 
                 style={({ pressed }) => [pressed && styles.pressed]}
             >
-                <View>
+                <View style={styles.innerContainer}>
                     <Image
                         style={styles.image}
                         source={require('../assets/img/1.jpg')} />
@@ -35,9 +35,14 @@ const styles = StyleSheet.create({
     movieContainer: {
         margin: 10
     },
+
+    innerContainer: {
+        borderRadius: 12,
+    },
     image: {
         width: 250,
-        height: 250
+        height: 250, 
+        borderRadius: 12,
     },
     text: {
         textAlign: 'center',

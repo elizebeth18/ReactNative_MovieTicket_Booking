@@ -12,7 +12,7 @@ const RootStack = () => {
                 headerStyle: { backgroundColor: '#540505' },
                 headerTintColor: 'white',
                 contentStyle: {
-                    backgroundColor: '#540505cc'
+                    backgroundColor: '#1a1a1a'
                 }
             }}
         >
