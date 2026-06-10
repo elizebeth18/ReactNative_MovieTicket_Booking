@@ -6,7 +6,7 @@ const ListMovies = ({ title, id }) => {
     const navigation = useNavigation();
 
     const onImagePressHandler = () => {
-        
+
         navigation.navigate('MovieDetails', {
             'id': id,
             'title': title
@@ -15,15 +15,17 @@ const ListMovies = ({ title, id }) => {
 
     return (
         <View style={styles.movieContainer}>
-            <Pressable 
+            <Pressable
                 onPress={onImagePressHandler}
-                android_ripple={{ color: "#cccc"}}
+                android_ripple={{ color: "#cccc" }}
                 style={({ pressed }) => [pressed && styles.pressed]}
             >
-                <Image
-                    style={styles.image}
-                    source={require('../assets/img/1.jpg')} />
-                <Text style={styles.text}>{title}</Text>
+                <View>
+                    <Image
+                        style={styles.image}
+                        source={require('../assets/img/1.jpg')} />
+                    <Text style={styles.text}>{title}</Text>
+                </View>
             </Pressable>
         </View>
     );

@@ -1,34 +1,55 @@
-import { useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
-import { Text, Image, StyleSheet, View } from "react-native";
+import { Text, View, Image, StyleSheet } from "react-native";
+import { Dropdown } from "react-native-element-dropdown";
+
 
 const MovieDetailScreen = ({ route }) => {
-
+    let pricesArr = [];
     const movieId = route.params.id;
-    //const navigation = useNavigation();
+    const [selectedSeat, setSelectedSeat] = useState(null)
+
     const selectMoviesList = useSelector(state => state.moviesR.movies);
 
     const chosenMovie = selectMoviesList.find((movie) => movie.id === route.params.id);
 
-    console.log(chosenMovie);
+    if (chosenMovie?.prices) {
+        pricesArr = Object.entries(chosenMovie.prices).map(
+            ([key, value]) => ({
+                label: `${key} - ₹${value}`,
+                value: key,
+            })
+        );
 
-    return (
-        <View style={styles.rootContainer}>
-            {!chosenMovie && <Text>Loading....</Text>}
-            {chosenMovie && <>
-                <View>
-                    <Image
-                        style={styles.image}
-                        source={require('../assets/img/1.jpg')}
-                    />
-                </View>
-                <Text>{chosenMovie.title}</Text>
-                <Text>{chosenMovie.director}</Text>
-                <Text>{chosenMovie.plot}</Text>
-                <Text>{chosenMovie.prices?.normal}</Text>
-            </>}
-        </View>
-    );
+        return (
+            <View style={styles.rootContainer}>
+                {!chosenMovie && <Text>Loading....</Text>}
+                {chosenMovie && <>
+                    <View>
+                        <Image
+                            style={styles.image}
+                            source={require('../assets/img/1.jpg')}
+                        />
+                    </View>
+                    <Text>{chosenMovie.title}</Text>
+                    <Text>{chosenMovie.director}</Text>
+                    <Text>{chosenMovie.plot}</Text>
+                    <Text>{chosenMovie.prices?.normal}</Text>
+                    <View>
+                        <Dropdown
+                            data={pricesArr}
+                            labelField='label'
+                            valueField='value'
+                            value={selectedSeat?.value}
+                            placeholder="Seat Selection"
+                            onChange={(item) => console.log({ ...item })}
+                        />
+                    </View>
+                    
+                </>}
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({

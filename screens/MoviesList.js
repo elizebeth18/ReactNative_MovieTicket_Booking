@@ -2,7 +2,7 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 import { moviesListThunk } from '../store/moviesSlice';
-import { View, FlatList, Image, Text, StyleSheet } from 'react-native';
+import { View, FlatList, Image, Text, StyleSheet, Platform } from 'react-native';
 import ListMovies from '../components/ListMovies';
 import NoMatchFound from '../components/NoMatchFound';
 
@@ -85,5 +85,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         marginBottom: 45,
+        overflow: Platform === 'android' ? 'hidden' : 'visible'
     },
 })
