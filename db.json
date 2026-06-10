@@ -1,7 +1,7 @@
 {
   "movies": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Thor",
       "image": "1.jpg",
       "genre": "Action, Adenture, comedy",
@@ -16,7 +16,7 @@
       }
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Wonder woman",
       "genre": "Action, Adenture, Fantasy",
       "director": "Patty Jenkins",
@@ -31,7 +31,7 @@
       }
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Logan",
       "genre": "Action, Drama, Sci-Fi",
       "director": "James Mangold ",
@@ -46,7 +46,7 @@
       }
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Despicable me 3",
       "genre": "Action, Drama, Sci-Fi",
       "director": "James Mangold ",
@@ -61,7 +61,7 @@
       }
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Star war",
       "genre": "Action, Drama, Sci-Fi",
       "director": "James Mangold ",
@@ -76,7 +76,7 @@
       }
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Pitch Perfect 3",
       "genre": "Animation, Action, Adventure",
       "director": "Trish Sie",
@@ -91,7 +91,7 @@
       }
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Opération casse-noisette 2",
       "genre": "Animation, Action, Adventure",
       "director": "Cal Brunker",
@@ -112,21 +112,126 @@
       "price": 200,
       "currency": "THB",
       "userId": "he6fe54u4s56o71d36z51no",
-      "id": 1
+      "id": "1"
     },
     {
       "movieId": 2,
       "price": 300,
       "currency": "THB",
       "userId": "he6fe54u4s56o71d36z51no",
-      "id": 2
+      "id": "2"
     },
     {
       "movieId": 5,
       "price": 300,
       "currency": "THB",
       "userId": "he6fe54u4s56o71d36z51no",
-      "id": 3
+      "id": "3"
+    },
+    {
+      "name": "Jilu ",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "1",
+      "movieName": "Thor",
+      "price": 200,
+      "id": "D2jJBAO98lI"
+    },
+    {
+      "name": "Ghj",
+      "email": "Bnnk",
+      "movieId": "3",
+      "movieName": "Logan",
+      "price": 300,
+      "id": "Uu74G5l7r_4"
+    },
+    {
+      "name": "Hmm",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "7",
+      "movieName": "Opération casse-noisette 2",
+      "price": 600,
+      "id": "efKjumoVNxs"
+    },
+    {
+      "name": "Hhj",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "7",
+      "movieName": "Opération casse-noisette 2",
+      "price": 300,
+      "id": "t8eeK6WvM2o"
+    },
+    {
+      "name": "Sjkak",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "2",
+      "movieName": "Wonder woman",
+      "price": 600,
+      "id": "0X-xZJlBBZg"
+    },
+    {
+      "name": "Anksna",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "2",
+      "movieName": "Wonder woman",
+      "price": 200,
+      "id": "3Dl_CmmBoB4"
+    },
+    {
+      "name": "Llol",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "6",
+      "movieName": "Pitch Perfect 3",
+      "price": 200,
+      "id": "WlwTxbEnKtw"
+    },
+    {
+      "name": "Cdd",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "6",
+      "movieName": "Pitch Perfect 3",
+      "price": 600,
+      "id": "abS2QxZxPwg"
+    },
+    {
+      "name": "Vvbh",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "7",
+      "movieName": "Opération casse-noisette 2",
+      "price": 200,
+      "id": "LVJUl9nqcdI"
+    },
+    {
+      "name": "Cngh",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "5",
+      "movieName": "Star war",
+      "price": 300,
+      "id": "Whf39ANylRE"
+    },
+    {
+      "name": "Sfgh",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "3",
+      "movieName": "Logan",
+      "price": 300,
+      "id": "MxnWRBkk5wA"
+    },
+    {
+      "name": "Sff",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "6",
+      "movieName": "Pitch Perfect 3",
+      "price": 600,
+      "id": "Xrv_4iK3nfI"
+    },
+    {
+      "name": "Bbhy",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "6",
+      "movieName": "Pitch Perfect 3",
+      "price": 300,
+      "id": "a2DINerGUjE"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

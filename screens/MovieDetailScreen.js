@@ -2,10 +2,11 @@ import { useState, useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
 import { Text, View, Image, StyleSheet } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
+import BookNowBtn from "../components/BookNowBtn";
 
 
 const MovieDetailScreen = ({ route }) => {
-    let pricesArr = [];
+    
     const movieId = route.params.id;
     const [selectedSeat, setSelectedSeat] = useState(null)
 
@@ -13,13 +14,7 @@ const MovieDetailScreen = ({ route }) => {
 
     const chosenMovie = selectMoviesList.find((movie) => movie.id === route.params.id);
 
-    if (chosenMovie?.prices) {
-        pricesArr = Object.entries(chosenMovie.prices).map(
-            ([key, value]) => ({
-                label: `${key} - ₹${value}`,
-                value: key,
-            })
-        );
+    
 
         return (
             <View style={styles.rootContainer}>
@@ -34,22 +29,13 @@ const MovieDetailScreen = ({ route }) => {
                     <Text>{chosenMovie.title}</Text>
                     <Text>{chosenMovie.director}</Text>
                     <Text>{chosenMovie.plot}</Text>
-                    <Text>{chosenMovie.prices?.normal}</Text>
-                    <View>
-                        <Dropdown
-                            data={pricesArr}
-                            labelField='label'
-                            valueField='value'
-                            value={selectedSeat?.value}
-                            placeholder="Seat Selection"
-                            onChange={(item) => console.log({ ...item })}
-                        />
-                    </View>
+                    <Text>{chosenMovie?.prices?.normal}</Text>
                     
+                    <BookNowBtn movieId={movieId} />
                 </>}
             </View>
         );
-    }
+    
 }
 
 const styles = StyleSheet.create({
