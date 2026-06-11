@@ -68,7 +68,8 @@ const MoviesList = () => {
                         return (
                             <ListMovies
                                 id={itemData.item.id}
-                                title={itemData.item.title} />
+                                title={itemData.item.title} 
+                                imageTitle={itemData.item.image} />
                         )
                     }} />
             }

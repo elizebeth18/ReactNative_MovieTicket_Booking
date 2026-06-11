@@ -1,12 +1,23 @@
 import { Pressable, View, Image, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const ListMovies = ({ title, id }) => {
+const ListMovies = ({ title, id, imageTitle }) => {
 
     const navigation = useNavigation();
 
-    const onImagePressHandler = () => {
+    const movieImages = {
+        '1.jpg': require('../assets/img/1.jpg'),
+        '2.jpg': require('../assets/img/2.jpg'),
+        '3.jpg': require('../assets/img/3.jpg'),
+        '4.jpg': require('../assets/img/4.jpg'),
+        '5.jpg': require('../assets/img/5.jpg'),
+        '6.jpg': require('../assets/img/6.jpg'),
+        '7.jpg': require('../assets/img/7.jpg')
+    };
 
+
+    const onImagePressHandler = () => {
+        
         navigation.navigate('MovieDetails', {
             'id': id,
             'title': title
@@ -17,13 +28,13 @@ const ListMovies = ({ title, id }) => {
         <View style={styles.movieContainer}>
             <Pressable
                 onPress={onImagePressHandler}
-                android_ripple={{ color: "#cccc", foreground: true }} 
+                android_ripple={{ color: "#cccc", foreground: true }}
                 style={({ pressed }) => [pressed && styles.pressed]}
             >
                 <View style={styles.innerContainer}>
                     <Image
                         style={styles.image}
-                        source={require('../assets/img/1.jpg')} />
+                        source={(movieImages[imageTitle])} />
                     <Text style={styles.text}>{title}</Text>
                 </View>
             </Pressable>
@@ -41,7 +52,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 250,
-        height: 250, 
+        height: 250,
         borderRadius: 12,
     },
     text: {

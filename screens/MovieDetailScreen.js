@@ -14,6 +14,16 @@ const MovieDetailScreen = ({ route }) => {
 
     const chosenMovie = selectMoviesList.find((movie) => movie.id === route.params.id);
 
+    const movieImages = {
+        '1.jpg': require('../assets/img/1.jpg'),
+        '2.jpg': require('../assets/img/2.jpg'),
+        '3.jpg': require('../assets/img/3.jpg'),
+        '4.jpg': require('../assets/img/4.jpg'),
+        '5.jpg': require('../assets/img/5.jpg'),
+        '6.jpg': require('../assets/img/6.jpg'),
+        '7.jpg': require('../assets/img/7.jpg')
+    };
+
 
 
     return (
@@ -25,7 +35,7 @@ const MovieDetailScreen = ({ route }) => {
                     <View style={styles.card}>
                         <Image
                             style={styles.image}
-                            source={require('../assets/img/1.jpg')}
+                            source={movieImages[chosenMovie.image]}
                         />
                         <Text style={styles.title}>{chosenMovie.title}</Text>
                         <Text style={styles.director}>Directed By {chosenMovie.director}</Text>

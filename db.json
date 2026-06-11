@@ -18,11 +18,11 @@
     {
       "id": "2",
       "title": "Wonder woman",
+      "image": "2.jpg",
       "genre": "Action, Adenture, Fantasy",
       "director": "Patty Jenkins",
       "stars": "Gal Gadot, Chris Pine, Robin Wright, Lucy Davis",
       "plot": "When a pilot crashes and tells of conflict in the outside world, Diana, an Amazonian warrior in training, leaves home to fight a war, discovering her full powers and true destiny.",
-      "image": "2.jpg",
       "currency": "THB",
       "prices": {
         "normal": 200,
@@ -33,11 +33,11 @@
     {
       "id": "3",
       "title": "Logan",
+      "image": "3.jpg",
       "genre": "Action, Drama, Sci-Fi",
       "director": "James Mangold ",
       "stars": "Hugh Jackman, Patrick Stewart, Dafne Keen, Boyd Holbrook",
       "plot": "In the near future, a weary Logan cares for an ailing Professor X, somewhere on the Mexican border. However, Logan's attempts to hide from the world, and his legacy, are upended when a young mutant arrives, pursued by dark forces.",
-      "image": "3.jpg",
       "currency": "THB",
       "prices": {
         "normal": 200,
@@ -48,11 +48,11 @@
     {
       "id": "4",
       "title": "Despicable me 3",
+      "image": "4.jpg",
       "genre": "Action, Drama, Sci-Fi",
       "director": "James Mangold ",
       "stars": "Hugh Jackman, Patrick Stewart, Dafne Keen, Boyd Holbrook",
       "plot": "Gru meets his long-lost charming, cheerful, and more successful twin brother Dru who wants to team up with him for one last criminal heist.",
-      "image": "../../src/assets/img/1.jpg",
       "currency": "THB",
       "prices": {
         "normal": 200,
@@ -63,11 +63,11 @@
     {
       "id": "5",
       "title": "Star war",
+      "image": "5.jpg",
       "genre": "Action, Drama, Sci-Fi",
       "director": "James Mangold ",
       "stars": "Hugh Jackman, Patrick Stewart, Dafne Keen, Boyd Holbrook",
       "plot": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares for battle with the First Order.",
-      "image": "5.jpg",
       "currency": "THB",
       "prices": {
         "normal": 200,
@@ -78,11 +78,11 @@
     {
       "id": "6",
       "title": "Pitch Perfect 3",
+      "image": "6.jpg",
       "genre": "Animation, Action, Adventure",
       "director": "Trish Sie",
       "stars": "Anna Kendrick, Rebel Wilson, Brittany Snow, Anna Camp",
       "plot": "Following their win at the world championship, the now separated Bellas reunite for one last singing competition at an overseas USO tour, but face a group who uses both instruments and voices.",
-      "image": "6.jpg",
       "currency": "THB",
       "prices": {
         "normal": 200,
@@ -93,11 +93,11 @@
     {
       "id": "7",
       "title": "Opération casse-noisette 2",
+      "image": "7.jpg",
       "genre": "Animation, Action, Adventure",
       "director": "Cal Brunker",
       "stars": "Will Arnett, Maya Rudolph, Bobby Cannavale, Bobby Moynihan",
       "plot": "Following the events of the first film, Surly and his friends must stop Oakton City's mayor from destroying their home to make way for a dysfunctional amusement park.",
-      "image": "7.jpg",
       "currency": "THB",
       "prices": {
         "normal": 200,
@@ -231,6 +231,46 @@
       "movieName": "Pitch Perfect 3",
       "price": 300,
       "id": "a2DINerGUjE"
+    },
+    {
+      "name": "Hhkkk",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "2",
+      "movieName": "Wonder woman",
+      "price": 200,
+      "id": "3egE0lD1s6Y"
+    },
+    {
+      "name": "Vhhjj",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "5",
+      "movieName": "Star war",
+      "price": 300,
+      "id": "jXb-rE9M8NI"
+    },
+    {
+      "name": "Serf",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "7",
+      "movieName": "Opération casse-noisette 2",
+      "price": 200,
+      "id": "fI2leG92ftY"
+    },
+    {
+      "name": "Ghj",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "7",
+      "movieName": "Opération casse-noisette 2",
+      "price": 600,
+      "id": "FSDE8fedaQY"
+    },
+    {
+      "name": "Ebin",
+      "email": "ebin@gmail.com",
+      "movieId": "4",
+      "movieName": "Despicable me 3",
+      "price": 300,
+      "id": "ix_lAEYM9wM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
