@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, ScrollView,View, Image, StyleSheet } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import BookNowBtn from "../components/BookNowBtn";
 
@@ -32,17 +32,29 @@ const MovieDetailScreen = ({ route }) => {
                 <Text style={styles.loadingText}>Loading...</Text>
             ) :
                 <>
-                    <View style={styles.card}>
+                    <ScrollView style={styles.card}>
                         <Image
                             style={styles.image}
                             source={movieImages[chosenMovie.image]}
                         />
                         <Text style={styles.title}>{chosenMovie.title}</Text>
                         <Text style={styles.director}>Directed By {chosenMovie.director}</Text>
+                        <Text style={styles.sectionTitle}>
+                            Genre
+                        </Text>
+                        <Text style={styles.plot}>{chosenMovie.genre}</Text>
+                        <Text style={styles.sectionTitle}>
+                            Plot Genre
+                        </Text>
                         <Text style={styles.plot}>{chosenMovie.plot}</Text>
 
+                        <Text style={styles.sectionTitle}>
+                            Characters
+                        </Text>
+                        <Text style={styles.plot}>{chosenMovie.stars}</Text>
+
                         <BookNowBtn movieId={movieId} />
-                    </View>
+                    </ScrollView>
                 </>}
         </View>
     );
@@ -59,13 +71,14 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor: '#2b2b2b',
         borderRadius: 12,
-        padding: 16,
+        padding: 10,
+        marginBottom: 35,
         elevation: 5,
     },
 
     image: {
         width: '100%',
-        height: 220,
+        height: 175,
         borderRadius: 10,
         marginBottom: 16,
     },
@@ -87,14 +100,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#ffffff',
-        marginBottom: 8,
+        marginBottom: 5,
     },
 
     plot: {
         fontSize: 15,
         lineHeight: 24,
         color: '#e0e0e0',
-        marginBottom: 24,
+        marginBottom: 20,
     },
 
     loadingText: {

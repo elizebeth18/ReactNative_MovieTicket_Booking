@@ -24,8 +24,9 @@ export default BookNowBtn;
 const styles = StyleSheet.create({
     buttonOuterContainer: {
         borderRadius: 28,
-        margin: 4,
-        overflow: 'hidden'
+        margin: 2,
+        overflow: 'hidden',
+        margin: 20
     },
     buttonInnerContainer: {
         backgroundColor: '#540505',

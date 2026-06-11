@@ -271,6 +271,14 @@
       "movieName": "Despicable me 3",
       "price": 300,
       "id": "ix_lAEYM9wM"
+    },
+    {
+      "name": "Ghj",
+      "email": "elizebeth18.jilu@gmail.com",
+      "movieId": "5",
+      "movieName": "Star war",
+      "price": 200,
+      "id": "X805Qv9ItDg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
